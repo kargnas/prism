@@ -1,5 +1,5 @@
 {
-  "name": "prism-php/prism",
+  "name": "kargnas/prism",
   "description": "A powerful Laravel package for integrating Large Language Models (LLMs) into your applications.",
   "type": "library",
   "license": "MIT",
@@ -15,6 +15,10 @@
     {
       "name": "TJ Miller",
       "email": "hello@echolabs.dev"
+    },
+    {
+      "name": "Sangrak Choi",
+      "email": "kars@kargn.as"
     }
   ],
   "require": {
