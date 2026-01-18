@@ -384,6 +384,20 @@ OpenRouter supports many models from different providers. The [Models API](https
 
 Visit [OpenRouter's models page](https://openrouter.ai/models) for a complete list of available models.
 
+### Model Capabilities
+
+Not all models support all features. You can use the OpenRouter Models page filters to find models with specific capabilities:
+
+- **Audio Input**: Models like `openai/gpt-4o-audio-preview` and select Google Gemini models
+- **Video Input**: Models like `google/gemini-2.0-flash-exp` and other multimodal Gemini variants
+- **Document/PDF**: Models like `anthropic/claude-sonnet-4` and newer multimodal models
+- **Prompt Caching**: 
+  - Automatic for most providers (OpenAI, Gemini, DeepSeek, Grok, Groq)
+  - Explicit `cache_control` required for Anthropic models
+- **Reasoning/Thinking**: Models like `openai/o1-preview`, `deepseek/deepseek-r1`, and select Gemini models
+
+Use the [Models API](https://openrouter.ai/docs/overview/models) to programmatically check `supported_parameters` and feature availability before making requests.
+
 ## Features
 
 - ✅ Text Generation
