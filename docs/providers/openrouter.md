@@ -297,13 +297,13 @@ use Prism\Prism\Enums\Provider;
 use Prism\Prism\ValueObjects\Messages\SystemMessage;
 use Prism\Prism\ValueObjects\Messages\UserMessage;
 
+$systemMessage = (new SystemMessage('You are an expert PHP developer with deep knowledge of Laravel.'))
+    ->withProviderOptions(['cacheType' => 'ephemeral']);
+
 $response = Prism::text()
     ->using(Provider::OpenRouter, 'anthropic/claude-sonnet-4')
     ->withMessages([
-        new SystemMessage(
-            'You are an expert PHP developer with deep knowledge of Laravel.',
-            cacheControl: ['type' => 'ephemeral']
-        ),
+        $systemMessage,
         new UserMessage('How do I implement middleware in Laravel?'),
     ])
     ->generate();
@@ -312,7 +312,7 @@ echo $response->text;
 ```
 
 > [!TIP]
-> Cache control can be applied to system messages, user messages, assistant messages, and tool results. Cached content is reused across requests to reduce costs. Check [Anthropic's caching documentation](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) for best practices.
+> Cache control can be applied to system messages, user messages, assistant messages, and tool results by using `withProviderOptions(['cacheType' => 'ephemeral'])`. Cached content is reused across requests to reduce costs. Check [Anthropic's caching documentation](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) for best practices.
 
 ### Advanced Parameters
 
